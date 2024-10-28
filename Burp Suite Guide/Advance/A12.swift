@@ -8,6 +8,111 @@
 import SwiftUI
 
 struct A12: View {
+    
+    
+    let bb1 = "Integrating Burp Suite with CI/CD"
+    let bb2 = "Integrating Burp Suite into your Continuous Integration/Continuous Deployment (CI/CD) pipeline can enhance your security testing by automating vulnerability assessments as part of your development process. This guide outlines how to achieve this integration effectively."
+
+    let bb3 = "1. Overview of CI/CD Integration"
+    let bb3a = "CI/CD pipelines automate the process of software development, testing, and deployment. By integrating Burp Suite, you can:"
+    let bb4 = "Automatically scan for vulnerabilities in your applications."
+    let bb5 = "Ensure security checks are conducted regularly and consistently."
+    let bb6 = "Reduce the risk of deploying insecure applications."
+
+    let bb7 = "2. Prerequisites"
+    let bb8 = "Before integrating Burp Suite with CI/CD, ensure you have the following:"
+    let bb9 = "Burp Suite Professional: The Professional version supports command-line options and integrations necessary for CI/CD."
+    let bb10 = "CI/CD Tool: A CI/CD tool such as Jenkins, GitLab CI, CircleCI, or Travis CI."
+    let bb11 = "Familiarity with Docker: If using Burp Suite in Docker."
+
+    let bb12 = "3. Setting Up Burp Suite for CI/CD"
+
+    let bb13 = "Step 1: Command-Line Interface (CLI) Access"
+    let bb14 = "1.Access Burp Suite CLI:"
+    let bb15 = "Burp Suite Professional supports a command-line interface for running scans. Familiarize yourself with the commands necessary to execute scans and generate reports."
+
+    let bb16 = "2.Example CLI Command:"
+    let bb17 = "Use the following command to start a scan:"
+    let bb18 = "java -jar burpsuite_pro.jar --project-file=project.burp --config-file=config.json --scan-url=https://example.com"
+    let bb19 = "Adjust the command according to your project and environment."
+
+    let bb20 = "Step 2: Create a Configuration File"
+    let bb21 = "1.Create a `config.json`:"
+    let bb22 = "Define your scan settings in a configuration file. This file can include settings for scan types, exclusions, and report formats."
+    let bb23 = "json"
+    let bb24 = "{"
+    let bb25 = "scanner: {"
+    let bb26 = "scanType: active,"
+    let bb27 = "scope: https://example.com"
+    let bb28 = "}"
+    let bb29 = "}"
+
+    let bb30 = "4. Integrating with CI/CD Tools"
+
+    let bb31 = "Step 1: Using Jenkins as an Example"
+    let bb32 = "1.Install Jenkins:"
+    let bb33 = "Make sure Jenkins is installed and configured on your server."
+
+    let bb34 = "2.Create a New Job:"
+    let bb35 = "In Jenkins, create a new Freestyle project or Pipeline job."
+
+    let bb36 = "3.Configure Job Steps:"
+    let bb37 = "Add build steps to run the Burp Suite scan:"
+
+    let bb38 = "For Freestyle project:"
+    let bb39 = "In the Build section, add an Execute Shell step with the command to run Burp Suite."
+
+    let bb40 = "For Pipeline project:"
+    let bb41 = "groovy"
+    let bb42 = "pipeline {"
+    let bb43 = "agent any"
+    let bb44 = "stages {"
+    let bb45 = "stage(\'Security Scan\') {"
+    let bb46 = "steps {"
+    let bb47 = "sh \'java -jar burpsuite_pro.jar --project-file=project.burp --config-file=config.json --scan-url=https://example.com\'"
+    let bb48 = "}"
+    let bb49 = "}"
+    let bb50 = "}"
+    let bb51 = "}"
+
+    let bb52 = "4.Set Up Notifications:"
+    let bb53 = "Configure post-build actions to send notifications based on the scan results. You can use plugins to send emails or integrate with Slack."
+
+    let bb54 = "Step 2: Using GitLab CI as an Example"
+    let bb55 = "1.Create `.gitlab-ci.yml`:"
+    let bb56 = "In your repository, create a file named `.gitlab-ci.yml` and configure it as follows:"
+    let bb57 = "yaml"
+    let bb58 = "stages:"
+    let bb59 = "security_scan"
+    let bb60 = "security_scan:"
+    let bb61 = "image: openjdk:8-jdk"
+    let bb62 = "stage: security_scan"
+    let bb63 = "script:"
+    let bb64 = "java -jar burpsuite_pro.jar --project-file=project.burp --config-file=config.json --scan-url=https://example.com"
+    let bb65 = "artifacts:"
+    let bb66 = "paths:"
+    let bb67 = "reports/"
+    let bb68 = "This configuration runs Burp Suite in a Java Docker container."
+
+    let bb69 = "5. Analyzing Results"
+
+    let bb70 = "1.Generate Reports:"
+    let bb71 = "Configure Burp Suite to generate reports after each scan. The reports should be saved as artifacts in your CI/CD pipeline."
+
+    let bb72 = "2.Review Findings:"
+    let bb73 = "Review the security findings in the generated reports to address vulnerabilities identified during the scan."
+
+    let bb74 = "6. Best Practices for Integration"
+    let bb75 = "Run Scans on Staging Environments: Always scan staging environments before promoting code to production."
+    let bb76 = "Schedule Regular Scans: Automate scans to run regularly, ensuring continuous monitoring of vulnerabilities."
+    let bb77 = "Integrate with Issue Trackers: Automatically create tickets in issue trackers for any vulnerabilities found during scans."
+    let bb78 = "Keep Burp Suite Updated: Ensure you are using the latest version of Burp Suite to take advantage of new features and vulnerability checks."
+
+    let bb79 = "7. Conclusion"
+    let bb80 = "Integrating Burp Suite into your CI/CD pipeline is a powerful way to enhance your application’s security posture. By automating vulnerability scans and generating reports, you can identify and address security issues early in the development process, leading to more secure applications and reducing the risk of deploying vulnerabilities into production. Following the steps outlined in this guide will help you successfully implement this integration in your CI/CD workflows."
+
+
+    
     var body: some View {
         ZStack {
             // Background color or other background elements
