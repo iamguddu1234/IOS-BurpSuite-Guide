@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B2F4A72C2CCF72E90016CAD5 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B2F4A72B2CCF72E90016CAD5 /* Lottie */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B2F4A6AF2CCF6F1B0016CAD5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2F4A72C2CCF72E90016CAD5 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = "Burp Suite Guide";
 			packageProductDependencies = (
+				B2F4A72B2CCF72E90016CAD5 /* Lottie */,
 			);
 			productName = "Burp Suite Guide";
 			productReference = B2F4A69E2CCF6F190016CAD5 /* Burp Suite Guide.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = B2F4A6952CCF6F190016CAD5;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B2F4A7242CCF71590016CAD5 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B2F4A69F2CCF6F190016CAD5 /* Products */;
 			projectDirPath = "";
@@ -558,6 +567,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B2F4A7242CCF71590016CAD5 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B2F4A72B2CCF72E90016CAD5 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2F4A7242CCF71590016CAD5 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B2F4A6962CCF6F190016CAD5 /* Project object */;
 }

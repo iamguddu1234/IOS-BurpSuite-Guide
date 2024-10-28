@@ -12,6 +12,7 @@ struct Burp_Suite_GuideApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(.light)
         }
     }
 }
