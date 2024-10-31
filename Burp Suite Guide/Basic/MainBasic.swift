@@ -1,67 +1,47 @@
-//
-//  MainBasic.swift
-//  LearnLinux
-//
-//  Created by Akshay Bhasme on 01/06/24.
-//
-
-
-
 import SwiftUI
-import Lottie
-
-
+import GoogleMobileAds
 
 struct MainBasic: View {
-    
-    @Binding var showTabBar: Bool // Add a binding for controlling the visibility of the tab bar
+    @Binding var showTabBar: Bool
+    @StateObject private var interstitialAdManager = InterstitialAdManager()
+    @StateObject private var adManager = InterstitialAdManager()
 
-
-
-
+    @State private var adShownOnce = false
 
     var body: some View {
-        
+        ScrollView {
+            VStack(spacing: 0) {
+                LottieView(animationName: "anii", loopMode: .loop)
+                    .frame(width: .infinity, height: 200)
 
-            
-     
-            ScrollView{
-                
-                
-                VStack(spacing: 0) {
-                    
-                   
-                    LottieView(animationName: "anii", loopMode: .loop)
-                        .frame(width: .infinity, height: 200)
-                    
-                    ListViewB1(showTabBar: $showTabBar)
-                        .frame(height: 260) // or use a specific height
+                ListViewB1(showTabBar: $showTabBar, interstitialAdManager: interstitialAdManager, adManager: adManager)
+                    .frame(height: 260)
 
-                    ListViewB2(showTabBar: $showTabBar)
-                        .padding(.vertical, 0)
-                        .frame(height: 260) // or use a specific height
-                    ListViewB3(showTabBar: $showTabBar)
-                        .padding(.vertical, 0)
-                        .frame(height: 260) // or use a specific height
+                ListViewB2(showTabBar: $showTabBar, interstitialAdManager: interstitialAdManager, adManager: adManager)
+                    .padding(.vertical, 0)
+                    .frame(height: 260)
 
-               
+                ListViewB3(showTabBar: $showTabBar, interstitialAdManager: interstitialAdManager, adManager: adManager)
+                    .padding(.vertical, 0)
+                    .frame(height: 260)
 
-                    
-
-                    
-                    Spacer()
-                    
-                }
-
-                
+                Spacer()
             }
-            .navigationBarTitleDisplayMode(.inline)
-
-
+        }
+        .background(UIViewControllerResolver()) // Add the UIViewController resolver here
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            interstitialAdManager.loadInterstitialAd() // Load the ad when view appears
+        }
     }
 }
+
+// ListViewB1
 struct ListViewB1: View {
-    @Binding var showTabBar: Bool // Add a binding for controlling the visibility of the tab bar
+    @Binding var showTabBar: Bool
+    @ObservedObject var interstitialAdManager: InterstitialAdManager
+    @Environment(\.uiViewController) private var uiViewController // Get the UI view controller from the environment
+    @ObservedObject var adManager: InterstitialAdManager
 
     var body: some View {
         List {
@@ -69,9 +49,13 @@ struct ListViewB1: View {
                      "Installation and Setup of Burp Suite",
                      "Understanding Burp Suite Interface",
                      "Working with Proxy Settings",
-                    "Capturing HTTP/S Traffic"], id: \.self) { item in
+                     "Capturing HTTP/S Traffic"], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
-                                .onAppear { showTabBar = false }
+                                .onAppear {
+                                    showTabBar = false
+                                    showInterstitialAd()
+                                    
+                                }
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationTitle(item)) {
 
@@ -83,14 +67,21 @@ struct ListViewB1: View {
         .onAppear {
             showTabBar = true // Ensure tab bar is shown when view appears
         }
-        .scrollDisabled(true)
+        // Allow scrolling for the list
     }
+
+    // Show the interstitial ad
+    private func showInterstitialAd() {
+        if let rootVC = UIApplication.shared.windows.first?.rootViewController {
+            adManager.showInterstitial(from: rootVC)
+        }
+    }
+
+
 
     func destinationView(for item: String) -> some View {
         switch item {
         case "Introduction to Burp Suite":
-            HapticFeedbackManager.shared.triggerHapticFeedback()
-
             return AnyView(B1().navigationTitle(item))
         case "Installation and Setup of Burp Suite":
             return AnyView(B2().navigationTitle(item))
@@ -100,15 +91,22 @@ struct ListViewB1: View {
             return AnyView(B4().navigationTitle(item))
         case "Capturing HTTP/S Traffic":
             return AnyView(B5().navigationTitle(item))
-
         default:
             return AnyView(EmptyView().navigationTitle("Unknown"))
         }
     }
 }
 
+
+// Repeat the same for ListViewB2 and ListViewB3 by using showAdOnce() and uiViewController as in ListViewB1.
+
+
 struct ListViewB2: View {
-    @Binding var showTabBar: Bool // Add a binding for controlling the visibility of the tab bar
+    @Binding var showTabBar: Bool
+    @ObservedObject var interstitialAdManager: InterstitialAdManager
+    @Environment(\.uiViewController) private var uiViewController // Get the UI view controller from the environment
+    @ObservedObject var adManager: InterstitialAdManager
+
 
     var body: some View {
         List {
@@ -116,11 +114,12 @@ struct ListViewB2: View {
                      "Using the Target Tab",
                      "Spidering Web Applications with Burp Suite",
                      "Performing Active Scanning",
-                     "Intruder for Automated Attacks",
-                 
-                    ], id: \.self) { item in
+                     "Intruder for Automated Attacks"], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
-                                .onAppear { showTabBar = false }
+                                .onAppear {
+                                    showTabBar = false
+                                    showInterstitialAd()
+                                }
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationTitle(item)) {
 
@@ -134,6 +133,15 @@ struct ListViewB2: View {
         }
         .scrollDisabled(true)
     }
+
+ 
+    // Show the interstitial ad
+    private func showInterstitialAd() {
+        if let rootVC = UIApplication.shared.windows.first?.rootViewController {
+            adManager.showInterstitial(from: rootVC)
+        }
+    }
+
 
     func destinationView(for item: String) -> some View {
         switch item {
@@ -147,8 +155,6 @@ struct ListViewB2: View {
             return AnyView(B9().navigationTitle(item))
         case "Intruder for Automated Attacks":
             return AnyView(B10().navigationTitle(item))
-      
-   
         default:
             return AnyView(EmptyView().navigationTitle("Unknown"))
         }
@@ -156,18 +162,23 @@ struct ListViewB2: View {
 }
 
 struct ListViewB3: View {
-    @Binding var showTabBar: Bool // Add a binding for controlling the visibility of the tab bar
+    @Binding var showTabBar: Bool
+    @ObservedObject var interstitialAdManager: InterstitialAdManager
+    @Environment(\.uiViewController) private var uiViewController // Get the UI view controller from the environment
+    @ObservedObject var adManager: InterstitialAdManager
+
 
     var body: some View {
         List {
             ForEach(["Using Burp Suite's Repeater for Testing",
                      "Utilizing Decoder for Encoding/Decoding",
                      "Engagement Tools in Burp Suite",
-                     "Using the Extender for Plugins in Burp Suite",
-             
-                    ], id: \.self) { item in
+                     "Using the Extender for Plugins in Burp Suite"], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
-                                .onAppear { showTabBar = false }
+                                .onAppear {
+                                    showTabBar = false
+                                    showInterstitialAd()
+                                }
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationTitle(item)) {
 
@@ -181,6 +192,15 @@ struct ListViewB3: View {
         }
         .scrollDisabled(true)
     }
+    
+ 
+    // Show the interstitial ad
+    private func showInterstitialAd() {
+        if let rootVC = UIApplication.shared.windows.first?.rootViewController {
+            adManager.showInterstitial(from: rootVC)
+        }
+    }
+
 
     func destinationView(for item: String) -> some View {
         switch item {
@@ -192,20 +212,16 @@ struct ListViewB3: View {
             return AnyView(B13().navigationTitle(item))
         case "Using the Extender for Plugins in Burp Suite":
             return AnyView(B14().navigationTitle(item))
-     
         default:
             return AnyView(EmptyView().navigationTitle("Unknown"))
         }
     }
 }
 
-
-
 struct CardView: View {
     let item: String
-    
+
     var body: some View {
-        
         VStack(spacing: 10) { // Aligning content to the start
             Text(item)
                 .font(.headline)
@@ -213,18 +229,13 @@ struct CardView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .lineLimit(1)
                 .truncationMode(.tail)
-                
         }
-        
         .frame(maxHeight: 40)
         .cornerRadius(10)
         .padding(0)
     }
-        
-        
-        
-    
 }
+
 
 
 
@@ -235,9 +246,5 @@ struct MainBasic_Previews: PreviewProvider {
         MainBasic(showTabBar: $showTabBar) // Pass the binding to BasicHomeView
     }
 }
-
-
-
-
 
 

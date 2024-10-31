@@ -1,33 +1,18 @@
-//
-//  ContentView.swift
-//  Burp Suite Guide
-//
-//  Created by Akshay Bhasme on 28/10/24.
-//
-
-
-
-
 import SwiftUI
+import GoogleMobileAds
 
 struct ContentView: View {
+    // Interstitial Ad Manager instance
+//    @StateObject private var adManager = InterstitialAdManager()
     
-    init() {
-           setupNavigationBarAppearance()
-       }
-    
-    @State private var showTabBar = true // Add state variable to manage visibility of CustomTabView
+    @State private var showTabBar = true
     @State private var selectedTabIndex = 0
     
-    
-    
     var body: some View {
-        
-        NavigationView{
+        NavigationView {
             VStack {
-                
                 if showTabBar {
-                    CustomTabView(selectedIndex: $selectedTabIndex)
+                    CustomTabView(selectedIndex: $selectedTabIndex/* adManager: adManager*/)
                         .padding(.top, 10)
                 }
                 
@@ -35,13 +20,10 @@ struct ContentView: View {
                     switch selectedTabIndex {
                     case 0:
                         MainBasic(showTabBar: $showTabBar)
-                        
                     case 1:
-                        MainIntermediate(showTabBar: $showTabBar) // Pass the binding to the BasicHomeView
-                        
+                        MainIntermediate(showTabBar: $showTabBar)
                     case 2:
-                        MainAdvance(showTabBar: $showTabBar)// Pass the binding to the BasicHomeView
-                        
+                        MainAdvance(showTabBar: $showTabBar)
                     default:
                         EmptyView()
                     }
@@ -52,54 +34,33 @@ struct ContentView: View {
             }
             .background(Color.gray.opacity(0.1))
             .edgesIgnoringSafeArea(.bottom)
-            
         }
         .preferredColorScheme(.light)
-        
-        
     }
-    
-    
-    private func setupNavigationBarAppearance() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
-
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-    }
-    
 }
 
-
+// Tab View with Ad Manager injected
 struct CustomTabView: View {
     @Binding var selectedIndex: Int
+//    @ObservedObject var adManager: InterstitialAdManager
     
     var body: some View {
-        HStack (spacing:0){
-            // Basic Tab
-            TabButton(title: "Basic", index: 0, selectedIndex: $selectedIndex)
+        HStack (spacing: 0) {
+            TabButton(title: "Basic", index: 0, selectedIndex: $selectedIndex/* adManager: adManager)*/)
                 .frame(maxWidth: .infinity)
             
             Rectangle()
                 .fill(Color.blue)
-                .frame(width: 1, height: 40) // Adjust height as needed
+                .frame(width: 1, height: 40)
             
-            
-            // Intermediate Tab
-            TabButton(title: "Intermediate", index: 1, selectedIndex: $selectedIndex)
+            TabButton(title: "Intermediate", index: 1, selectedIndex: $selectedIndex /*adManager: adManager*/)
                 .frame(maxWidth: .infinity)
+            
             Rectangle()
                 .fill(Color.blue)
-                .frame(width: 1, height: 40) // Adjust height as needed
+                .frame(width: 1, height: 40)
             
-            
-            
-            // Advanced Tab
-            TabButton(title: "Advanced", index: 2, selectedIndex: $selectedIndex)
+            TabButton(title: "Advanced", index: 2, selectedIndex: $selectedIndex /*adManager: adManager*/)
                 .frame(maxWidth: .infinity)
         }
         .frame(height: 40)
@@ -111,16 +72,18 @@ struct CustomTabView: View {
     }
 }
 
+// Tab button that shows the ad when clicked
 struct TabButton: View {
     let title: String
     let index: Int
     @Binding var selectedIndex: Int
+//    @ObservedObject var adManager: InterstitialAdManager
     
     var body: some View {
         Button(action: {
             self.selectedIndex = self.index
             HapticFeedbackManager.shared.triggerHapticFeedback()
-
+//            showInterstitialAd()
         }) {
             Text(title)
                 .frame(maxWidth: .infinity)
@@ -129,16 +92,15 @@ struct TabButton: View {
                 .padding(.vertical, 10)
                 .background(selectedIndex == index ? Color.blue : Color.clear)
                 .clipShape(RoundedRectangle(cornerRadius: 1))
-            
         }
-        .buttonStyle(PlainButtonStyle()) // To remove default button styling
+        .buttonStyle(PlainButtonStyle())
     }
+    
+//    // Show the interstitial ad
+//    private func showInterstitialAd() {
+//        if let rootVC = UIApplication.shared.windows.first?.rootViewController {
+//            adManager.showInterstitial(from: rootVC)
+//        }
+//    }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
 

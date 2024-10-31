@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct Burp_Suite_GuideApp: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

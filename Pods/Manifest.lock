@@ -1,0 +1,29 @@
+PODS:
+  - FBAudienceNetwork (6.15.2)
+  - Google-Mobile-Ads-SDK (11.10.0):
+    - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleMobileAdsMediationFacebook (6.15.2.1):
+    - FBAudienceNetwork (= 6.15.2)
+    - Google-Mobile-Ads-SDK (~> 11.0)
+  - GoogleUserMessagingPlatform (2.6.0)
+
+DEPENDENCIES:
+  - Google-Mobile-Ads-SDK
+  - GoogleMobileAdsMediationFacebook
+
+SPEC REPOS:
+  trunk:
+    - FBAudienceNetwork
+    - Google-Mobile-Ads-SDK
+    - GoogleMobileAdsMediationFacebook
+    - GoogleUserMessagingPlatform
+
+SPEC CHECKSUMS:
+  FBAudienceNetwork: 2457a89b45e2596241fd81b0c2fd8cb6f6053869
+  Google-Mobile-Ads-SDK: 13e6e98edfd78ad8d8a791edb927658cc260a56f
+  GoogleMobileAdsMediationFacebook: 03634215ee58e77f39e8c29dc8121840486aebce
+  GoogleUserMessagingPlatform: 0c3a08353e53ce8c2feab7addd0b652cde522450
+
+PODFILE CHECKSUM: e4d49267e4162522da491116a845ef29e0b31308
+
+COCOAPODS: 1.16.1

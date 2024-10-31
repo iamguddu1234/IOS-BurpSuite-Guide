@@ -1,0 +1,6 @@
+framework module Pods_Burp_Suite_Guide_Burp_Suite_GuideUITests {
+  umbrella header "Pods-Burp Suite Guide-Burp Suite GuideUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -9,13 +9,15 @@
 
 import SwiftUI
 import Lottie
+import GoogleMobileAds
 
 
 
 struct MainAdvance: View {
     
     @Binding var showTabBar: Bool // Add a binding for controlling the visibility of the tab bar
-
+    @StateObject private var interstitialAdManager = InterstitialAdManager()
+    @StateObject private var adManager = InterstitialAdManager()
 
 
 
@@ -33,14 +35,14 @@ struct MainAdvance: View {
                     LottieView(animationName: "b", loopMode: .loop)
                         .frame(width: .infinity, height: 200)
                     
-                    ListViewA1(showTabBar: $showTabBar)
+                    ListViewA1(showTabBar: $showTabBar,interstitialAdManager: interstitialAdManager, adManager: adManager)
                         .frame(height: 220) // or use a specific height
 
-                    ListViewA1(showTabBar: $showTabBar)
+                    ListViewA1(showTabBar: $showTabBar,interstitialAdManager: interstitialAdManager, adManager: adManager)
                         .frame(height: 220) // or use a specific height
 
                     
-                    ListViewA3(showTabBar: $showTabBar)
+                    ListViewA3(showTabBar: $showTabBar,interstitialAdManager: interstitialAdManager, adManager: adManager)
                         .padding(.vertical, 0)
                         .frame(height: 260) // or use a specific height
              
@@ -55,7 +57,11 @@ struct MainAdvance: View {
                 }
                 
             }
+            .background(UIViewControllerResolver()) // Add the UIViewController resolver here
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                interstitialAdManager.loadInterstitialAd() // Load the ad when view appears
+            }
      
                 
             
@@ -65,7 +71,10 @@ struct MainAdvance: View {
 }
 struct ListViewA1: View {
     @Binding var showTabBar: Bool // Add a binding for controlling the visibility of the tab bar
-
+    @ObservedObject var interstitialAdManager: InterstitialAdManager
+    @Environment(\.uiViewController) private var uiViewController // Get the UI view controller from the environment
+    @ObservedObject var adManager: InterstitialAdManager
+    
     var body: some View {
         List {
             ForEach(["Burp Suite for Mobile Application Testing",
@@ -74,7 +83,10 @@ struct ListViewA1: View {
                      "Best Practices for Penetration Testing with Burp Suite",
                  ], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
-                                .onAppear { showTabBar = false }
+                                .onAppear {
+                                    showTabBar = false
+                                    showInterstitialAd()
+                                }
                     .navigationBarTitleDisplayMode(.inline)
 
                     .navigationTitle(item)) {
@@ -89,6 +101,14 @@ struct ListViewA1: View {
         }
         .scrollDisabled(true)
     }
+    
+    // Show the interstitial ad
+    private func showInterstitialAd() {
+        if let rootVC = UIApplication.shared.windows.first?.rootViewController {
+            adManager.showInterstitial(from: rootVC)
+        }
+    }
+    
 
     func destinationView(for item: String) -> some View {
         switch item {
@@ -111,6 +131,9 @@ struct ListViewA1: View {
 
 struct ListViewA2: View {
     @Binding var showTabBar: Bool // Add a binding for controlling the visibility of the tab bar
+    @ObservedObject var interstitialAdManager: InterstitialAdManager
+    @Environment(\.uiViewController) private var uiViewController // Get the UI view controller from the environment
+    @ObservedObject var adManager: InterstitialAdManager
 
     var body: some View {
         List {
@@ -121,7 +144,10 @@ struct ListViewA2: View {
                     
                     ], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
-                                .onAppear { showTabBar = false }
+                    .onAppear {
+                        showTabBar = false
+                        showInterstitialAd()
+                    }
                     .navigationBarTitleDisplayMode(.inline)
 
                     .navigationTitle(item)) {
@@ -135,6 +161,13 @@ struct ListViewA2: View {
             showTabBar = true // Ensure tab bar is shown when view appears
         }
         .scrollDisabled(true)
+    }
+    
+    // Show the interstitial ad
+    private func showInterstitialAd() {
+        if let rootVC = UIApplication.shared.windows.first?.rootViewController {
+            adManager.showInterstitial(from: rootVC)
+        }
     }
 
     func destinationView(for item: String) -> some View {
@@ -157,6 +190,9 @@ struct ListViewA2: View {
 
 struct ListViewA3: View {
     @Binding var showTabBar: Bool // Add a binding for controlling the visibility of the tab bar
+    @ObservedObject var interstitialAdManager: InterstitialAdManager
+    @Environment(\.uiViewController) private var uiViewController // Get the UI view controller from the environment
+    @ObservedObject var adManager: InterstitialAdManager
 
     var body: some View {
         List {
@@ -167,7 +203,10 @@ struct ListViewA3: View {
                            
                     ], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
-                                .onAppear { showTabBar = false }
+                                .onAppear {
+                                    showTabBar = false
+                                    showInterstitialAd()
+                                }
                     .navigationBarTitleDisplayMode(.inline)
 
                     .navigationTitle(item)) {
@@ -183,6 +222,14 @@ struct ListViewA3: View {
         .scrollDisabled(true)
     }
 
+    
+    // Show the interstitial ad
+    private func showInterstitialAd() {
+        if let rootVC = UIApplication.shared.windows.first?.rootViewController {
+            adManager.showInterstitial(from: rootVC)
+        }
+    }
+    
     func destinationView(for item: String) -> some View {
         switch item {
         case "Session Management Testing in Burp Suite":
