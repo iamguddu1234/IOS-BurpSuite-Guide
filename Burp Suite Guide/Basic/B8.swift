@@ -115,6 +115,102 @@ struct B8: View {
                     VStack(alignment: .leading, spacing: 15) {
                         
                 
+                        Text2(title1: h1, title2: h2)
+
+                                               Head(title: h3)
+
+                                              
+
+                                               Text8(title1: h4, title2: h5, title3: h6, title4: h7,title5: h8, title6: h9, title7: h10, title8: h11)
+
+                                                 
+                                                
+
+                                                 Text4(title1: h12, title2: h13, title3: h14, title4: h15)
+
+                                                 Head(title: h16)
+
+                                                
+
+                                                  Text10(title1: h17, title2: h18, title3: h19, title4: h20, title5: h21, title6: h22, title7: h23, title8: h24, title9: h25, title10: h26)
+
+                                                  
+                                                  
+
+                                                   Text2(title1: h27, title2: h28)
+
+                                                   
+
+                                                   Text2(title1: h30, title2: h31)
+
+                                                  
+
+                                                   Text2(title1: h32, title2: h33)
+
+                                                 
+
+                                                   Text3(title1: h34, title2: h35, title3: h36)
+
+                                                   
+
+                                                  Text6(title1: h37, title2: h38, title3: h39, title4: h40, title5: h41, title6: h42)
+
+                                                  
+
+                                                   Text3(title1: h43, title2: h44, title3: h45)
+
+                                                   
+
+                                                   Text2(title1: h46, title2: h47)
+
+                                                   
+
+                                                   Text3(title1: h48, title2: h49, title3: h50)
+
+                                                  
+
+                                                   Text3(title1: h51, title2: h52, title3: h53)
+
+
+
+                                                   Text2(title1: h54, title2: h55)
+
+                                                   Head(title: h56)
+
+                                                  
+
+                                                   Text3(title1: h57, title2: h58, title3: h59)
+
+                                                  
+
+                                                   Text2(title1: h60, title2: h61)
+
+                                                  
+
+                                                   Text2(title1: h62, title2: h63)
+
+                                                   
+                                                   Text2(title1: h64, title2: h65)
+
+                                                   
+                                                  
+
+                                                   Text2(title1: h66, title2: h67)
+
+                                                    
+                                                  
+
+                                                   Text2(title1: h68, title2: h69)
+
+                                                    
+                                                  
+
+                                                   Text2(title1: h70, title2: h71)
+
+
+
+
+                        
                      
                     }
                     .padding()

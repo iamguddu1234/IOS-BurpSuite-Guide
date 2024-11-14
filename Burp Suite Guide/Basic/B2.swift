@@ -118,6 +118,74 @@ struct B2: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 15) {
                         
+                        
+                       
+
+                                               Text2(title1: b2, title2: b3)
+
+                                               Htext(title: b4)
+
+                                               Text3(title1: b5, title2: b6, title3: b7)
+
+                                               Text4(title1: b8, title2: b9, title3: b10, title4: b11)
+
+                                               Text4(title1: b12, title2: b13, title3: b14, title4: b15)
+
+                                               Text6(title1: b16, title2: b17, title3: b18,title4: b19, title5: b20, title6: b21)
+
+                                             
+
+                                               Htext(title: b22)
+
+                                               Text2(title1: b23, title2: b24)
+
+                                               Text4(title1: b25, title2: b26, title3: b27, title4: b28)
+
+                                               Text3(title1: b29, title2: b30, title3: b31)
+
+                                               Text2(title1: b32, title2: b33)
+                        
+                        
+
+                                               Text6(title1: b34, title2: b35, title3: b36,title4: b37, title5: b38, title6: b39)
+
+                                            
+
+                                               Head(title: b40)
+
+                                               Text2(title1: b41, title2: b42)
+
+                        
+                                               Text7(title1: b43, title2: b44, title3: b45,title4: b46, title5: b47, title6: b48, title7: b49)
+
+                                           
+
+                                               Text3(title1: b50, title2: b51, title3: b52)
+
+                                               Text3(title1: b53, title2: b54, title3: b55)
+
+                        
+                        
+                                               Text9(title1: b56, title2: b57, title3: b58, title4: b59, title5: b60,title6: b61, title7: b62, title8: b63, title9: b64)
+
+                                            
+
+                                               Text4(title1: b65, title2: b66, title3: b67, title4: b68)
+
+                        
+                        
+                                               Text6(title1: b69, title2: b70, title3: b71,title4: b72, title5: b73, title6: b74)
+
+                                              
+                        
+                        
+                        
+                        
+
+                                               Text2(title1: b75,title2: b76)
+
+
+
                 
                      
                     }
