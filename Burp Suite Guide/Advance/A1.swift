@@ -9,7 +9,7 @@ import SwiftUI
 
 struct A1: View {
     
-    let cc1 = "Burp Suite for Mobile Application Testing"
+    let cc1 = "Mobile Application Testing"
     let cc2 = "Burp Suite is a powerful tool for security testing web applications, including mobile applications. Mobile apps often communicate with servers via APIs, making them susceptible to various vulnerabilities. This guide provides a comprehensive overview of using Burp Suite for mobile application testing."
     
     let cc3 = "1. Overview of Mobile Application Testing"

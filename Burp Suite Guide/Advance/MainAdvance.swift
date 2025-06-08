@@ -77,10 +77,10 @@ struct ListViewA1: View {
     
     var body: some View {
         List {
-            ForEach(["Burp Suite for Mobile Application Testing",
-                     "Advanced Scanning Techniques in Burp Suite",
-                     "Using Burp Suite with Command-Line Interface",
-                     "Best Practices for Penetration Testing with Burp Suite",
+            ForEach(["Mobile Application Testing",
+                     "Advanced Scanning Techniques",
+                     "Command-Line Interface",
+                     "Best Practices for Penetration Testing",
                  ], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
                                 .onAppear {
@@ -112,14 +112,14 @@ struct ListViewA1: View {
 
     func destinationView(for item: String) -> some View {
         switch item {
-        case "Burp Suite for Mobile Application Testing":
+        case "Mobile Application Testing":
             HapticFeedbackManager.shared.triggerHapticFeedback()
             return AnyView(A1().navigationTitle(item))
-        case "Advanced Scanning Techniques in Burp Suite":
+        case "Advanced Scanning Techniques":
             return AnyView(A2().navigationTitle(item))
-        case "Using Burp Suite with Command-Line Interface":
+        case "Command-Line Interface":
             return AnyView(A3().navigationTitle(item))
-        case "Best Practices for Penetration Testing with Burp Suite":
+        case "Best Practices for Penetration Testing":
             return AnyView(A4().navigationTitle(item))
      
        
@@ -137,10 +137,10 @@ struct ListViewA2: View {
 
     var body: some View {
         List {
-            ForEach(["Exporting and Analyzing Logs in Burp Suite",
-                     "Using Burp Suite with OWASP ZAP",
-                     "Burp Suite Community vs. Professional Edition",
-                     "Common Burp Suite Vulnerability Types",
+            ForEach(["Exporting and Analyzing Logs",
+                     "Using with OWASP ZAP",
+                     "Community vs. Professional Edition",
+                     "Common Vulnerability Types",
                     
                     ], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
@@ -172,13 +172,13 @@ struct ListViewA2: View {
 
     func destinationView(for item: String) -> some View {
         switch item {
-        case "Exporting and Analyzing Logs in Burp Suite":
+        case "Exporting and Analyzing Logs":
             return AnyView(A5().navigationTitle(item))
-        case "Using Burp Suite with OWASP ZAP":
+        case "Using with OWASP ZAP":
             return AnyView(A6().navigationTitle(item))
-        case "Burp Suite Community vs. Professional Edition":
+        case "Community vs. Professional Edition":
             return AnyView(A7().navigationTitle(item))
-        case "Common Burp Suite Vulnerability Types":
+        case "Common Vulnerability Types":
             return AnyView(A8().navigationTitle(item))
 
        
@@ -196,10 +196,10 @@ struct ListViewA3: View {
 
     var body: some View {
         List {
-            ForEach(["Session Management Testing in Burp Suite",
-                     "Testing for Security Misconfigurations in Burp Suite",
-                     "Using Burp Suite with Docker",
-                     "Integrating Burp Suite with CI/CD",
+            ForEach(["Session Management Testing",
+                     "Testing for Security Misconfigurations",
+                     "Using with Docker",
+                     "Integrating CI/CD",
                            
                     ], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
@@ -232,13 +232,13 @@ struct ListViewA3: View {
     
     func destinationView(for item: String) -> some View {
         switch item {
-        case "Session Management Testing in Burp Suite":
+        case "Session Management Testing":
             return AnyView(A6().navigationTitle(item))
-        case "Testing for Security Misconfigurations in Burp Suite":
+        case "Testing for Security Misconfigurations":
             return AnyView(A7().navigationTitle(item))
-        case "Using Burp Suite with Docker":
+        case "Using with Docker":
             return AnyView(A8().navigationTitle(item))
-        case "Integrating Burp Suite with CI/CD":
+        case "Integrating CI/CD":
             return AnyView(A9().navigationTitle(item))
   
        

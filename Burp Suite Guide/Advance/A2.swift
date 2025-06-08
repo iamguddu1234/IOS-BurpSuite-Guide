@@ -9,7 +9,7 @@ import SwiftUI
 
 struct A2: View {
     
-    let dd1 = "Advanced Scanning Techniques in Burp Suite"
+    let dd1 = "Advanced Scanning Techniques"
     let dd2 = "Burp Suite offers a range of advanced scanning techniques that enhance your ability to identify vulnerabilities in web applications. These techniques go beyond basic scanning and allow for more in-depth analysis and automated testing. This guide will cover various advanced scanning techniques available in Burp Suite, specifically in the context of security testing."
     
     let dd3 = " 1. Overview of Advanced Scanning Techniques"

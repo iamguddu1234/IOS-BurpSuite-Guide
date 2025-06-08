@@ -12,8 +12,10 @@ struct B1: View {
     
     
     
-    let a1 = "Welcome to the Burp Suite Guide!"
-    let a2 = "The Burp Suite Guide app is your go-to resource for mastering Burp Suite, the industry\'s leading tool for web security testing and penetration testing. Whether you\'re a beginner just getting started with security testing or a seasoned professional looking to enhance your skills, this app is designed to provide a comprehensive, step-by-step guide to using Burp Suite effectively."
+    let a1 = "Welcome to the PenTest Proxy Tool Guide"
+    let a2 = "The PenTest Proxy Tool Guide app is your go-to resource for mastering Burp Suite, the industry\'s leading tool for web security testing and penetration testing. Whether you\'re a beginner just getting started with security testing or a seasoned professional looking to enhance your skills, this app is designed to provide a comprehensive, step-by-step guide to using Burp Suite effectively."
+    
+    
     let a3 = "With 40+ in-depth topics, you\'ll explore everything from the basics of setting up Burp Suite to advanced techniques for discovering vulnerabilities, analyzing traffic, and exploiting security flaws. Each topic is carefully crafted to help you understand the features of Burp Suite and how to apply them in real-world scenarios."
     
     let a4 = "Key Features:"
@@ -65,7 +67,7 @@ struct B1: View {
     let a33 = "With its intuitive interface and extensive capabilities, Burp Suite has become an essential tool for anyone involved in web security testing."
     
     
-    let a34 = "The best way to master Burp Suite is through hands-on practice. As you progress through each topic in this app, you’ll have the opportunity to apply what you’ve learned with real-world examples and exercises. This practical approach will help you build a strong foundation in web security testing, ensuring that you understand how each tool works in real scenarios."
+    let a34 = "The best way to master PenTest Proxy Tool Guide is through hands-on practice. As you progress through each topic in this app, you’ll have the opportunity to apply what you’ve learned with real-world examples and exercises. This practical approach will help you build a strong foundation in web security testing, ensuring that you understand how each tool works in real scenarios."
     
     
     

@@ -73,9 +73,9 @@ struct ListViewI1: View {
     
     var body: some View {
         List {
-            ForEach(["Customizing Burp Suite with Extensions",
+            ForEach(["Customizing Extensions",
                      "Analyzing Application Responses",
-                     "Using the Comparer Tool in Burp Suite",
+                     "Using the Comparer Tool",
                      "Setting Up and Using Burp Collaborator",
                 
                   ], id: \.self) { item in
@@ -108,13 +108,13 @@ struct ListViewI1: View {
     
     func destinationView(for item: String) -> some View {
         switch item {
-        case "Customizing Burp Suite with Extensions":
+        case "Customizing Extensions":
             HapticFeedbackManager.shared.triggerHapticFeedback()
 
             return AnyView(I1().navigationTitle(item))
         case "Analyzing Application Responses":
             return AnyView(I2().navigationTitle(item))
-        case "Using the Comparer Tool in Burp Suite":
+        case "Using the Comparer Tool":
             return AnyView(I3().navigationTitle(item))
         case "Setting Up and Using Burp Collaborator":
             return AnyView(I4().navigationTitle(item))
@@ -133,10 +133,10 @@ struct ListViewI2: View {
     
     var body: some View {
         List {
-            ForEach(["Understanding Burp Suite's Reporting Features",
-                     "Using the SQL Injection Scanner in Burp Suite",
-                     "Cross-Site Scripting (XSS) Testing in Burp Suite",
-                     "File Upload Vulnerability Testing in Burp Suite",
+            ForEach(["Understanding Reporting Features",
+                     "Using the SQL Injection Scanner",
+                     "Cross-Site Scripting (XSS) Testing",
+                     "File Upload Vulnerability Testing",
                     ], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
                     .onAppear {
@@ -167,13 +167,13 @@ struct ListViewI2: View {
 //    
     func destinationView(for item: String) -> some View {
         switch item {
-        case "Understanding Burp Suite's Reporting Features":
+        case "Understanding Reporting Features":
             return AnyView(I5().navigationTitle(item))
-        case "Using the SQL Injection Scanner in Burp Suite":
+        case "Using the SQL Injection Scanner":
             return AnyView(I6().navigationTitle(item))
-        case "Cross-Site Scripting (XSS) Testing in Burp Suite":
+        case "Cross-Site Scripting (XSS) Testing":
             return AnyView(I7().navigationTitle(item))
-        case "File Upload Vulnerability Testing in Burp Suite":
+        case "File Upload Vulnerability Testing":
             return AnyView(I8().navigationTitle(item))
         
         default:
@@ -190,7 +190,7 @@ struct ListViewI3: View {
     
     var body: some View {
         List {
-            ForEach(["Cross-Site Request Forgery (CSRF) Testing in Burp Suite",
+            ForEach(["Cross-Site Request Forgery (CSRF) Testing",
                      "Finding Vulnerabilities in Web Applications",
          
                     ], id: \.self) { item in
@@ -223,7 +223,7 @@ struct ListViewI3: View {
     
     func destinationView(for item: String) -> some View {
         switch item {
-        case "Cross-Site Request Forgery (CSRF) Testing in Burp Suite":
+        case "Cross-Site Request Forgery (CSRF) Testing":
             return AnyView(I9().navigationTitle(item))
         case "Finding Vulnerabilities in Web Applications":
             return AnyView(I10().navigationTitle(item))

@@ -554,7 +554,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Burp-Suite-Guide-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Burp Suite Guide";
+				INFOPLIST_KEY_CFBundleDisplayName = "PenTest Proxy Tool";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -566,7 +566,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.akshay.link.Burp-Suite-Guide";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.akshay.link.PenTest-Proxy-Tool";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -587,7 +587,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Burp-Suite-Guide-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Burp Suite Guide";
+				INFOPLIST_KEY_CFBundleDisplayName = "PenTest Proxy Tool";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -599,7 +599,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.akshay.link.Burp-Suite-Guide";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.akshay.link.PenTest-Proxy-Tool";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

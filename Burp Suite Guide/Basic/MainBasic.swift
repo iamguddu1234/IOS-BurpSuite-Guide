@@ -66,9 +66,9 @@ struct ListViewB1: View {
 
     var body: some View {
         List {
-            ForEach(["Introduction to Burp Suite",
-                     "Installation and Setup of Burp Suite",
-                     "Understanding Burp Suite Interface",
+            ForEach(["Introduction",
+                     "Installation and Setup",
+                     "Understanding Interface",
                      "Working with Proxy Settings",
                      "Capturing HTTP/S Traffic"], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
@@ -102,12 +102,12 @@ struct ListViewB1: View {
 
     func destinationView(for item: String) -> some View {
         switch item {
-        case "Introduction to Burp Suite":
+        case "Introduction":
             HapticFeedbackManager.shared.triggerHapticFeedback()
             return AnyView(B1().navigationTitle(item))
-        case "Installation and Setup of Burp Suite":
+        case "Installation and Setup":
             return AnyView(B2().navigationTitle(item))
-        case "Understanding Burp Suite Interface":
+        case "Understanding Interface":
             return AnyView(B3().navigationTitle(item))
         case "Working with Proxy Settings":
             return AnyView(B4().navigationTitle(item))
@@ -134,7 +134,7 @@ struct ListViewB2: View {
         List {
             ForEach(["Interception and Modifying Requests",
                      "Using the Target Tab",
-                     "Spidering Web Applications with Burp Suite",
+                     "Spidering Web Applications",
                      "Performing Active Scanning",
                      "Intruder for Automated Attacks"], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
@@ -171,7 +171,7 @@ struct ListViewB2: View {
             return AnyView(B6().navigationTitle(item))
         case "Using the Target Tab":
             return AnyView(B7().navigationTitle(item))
-        case "Spidering Web Applications with Burp Suite":
+        case "Spidering Web Applications":
             return AnyView(B8().navigationTitle(item))
         case "Performing Active Scanning":
             return AnyView(B9().navigationTitle(item))
@@ -192,10 +192,10 @@ struct ListViewB3: View {
 
     var body: some View {
         List {
-            ForEach(["Using Burp Suite's Repeater for Testing",
+            ForEach(["Using Repeater for Testing",
                      "Utilizing Decoder for Encoding/Decoding",
-                     "Engagement Tools in Burp Suite",
-                     "Using the Extender for Plugins in Burp Suite"], id: \.self) { item in
+                     "Engagement Tools",
+                     "Using the Extender for Plugins"], id: \.self) { item in
                 NavigationLink(destination: destinationView(for: item)
                                 .onAppear {
                                     showTabBar = false
@@ -226,13 +226,13 @@ struct ListViewB3: View {
 
     func destinationView(for item: String) -> some View {
         switch item {
-        case "Using Burp Suite's Repeater for Testing":
+        case "Using Repeater for Testing":
             return AnyView(B11().navigationTitle(item))
         case "Utilizing Decoder for Encoding/Decoding":
             return AnyView(B12().navigationTitle(item))
-        case "Engagement Tools in Burp Suite":
+        case "Engagement Tools":
             return AnyView(B13().navigationTitle(item))
-        case "Using the Extender for Plugins in Burp Suite":
+        case "Using the Extender for Plugins":
             return AnyView(B14().navigationTitle(item))
         default:
             return AnyView(EmptyView().navigationTitle("Unknown"))
